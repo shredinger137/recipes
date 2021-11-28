@@ -1,0 +1,18 @@
+body {
+    background-color: #1C1818;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: gray;
+    text-decoration: none;
+}
+
+p {
+    color: white;
+}
