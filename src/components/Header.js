@@ -6,7 +6,7 @@ const Header = () => {
 
     return (
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <span class="navbar-brand"></span>
+            <span class="navbar-brand">lulufremen</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" onClick={toggleMenu}>
                 <span class="navbar-toggler-icon"></span>
             </button>

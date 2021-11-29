@@ -25,6 +25,8 @@ const SinglePost = (props) => {
         )
     }, [])
 
+    //TODO: Content is returned as a different item for each paragraph. So you need a foreach or map or something here.
+    
     return (
         <div>
             <h2 style={{marginTop: "50px", color: "white"}}>{itemData.title}</h2>
