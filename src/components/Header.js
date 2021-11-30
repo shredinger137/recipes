@@ -1,3 +1,6 @@
+import {Link} from 'react-router-dom';
+
+
 const Header = () => {
 
     const toggleMenu = () => {
@@ -5,16 +8,18 @@ const Header = () => {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <span class="navbar-brand">lulufremen</span>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" onClick={toggleMenu}>
-                <span class="navbar-toggler-icon"></span>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <span className="navbar-brand">lulufremen</span>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" onClick={toggleMenu}>
+                <span className="navbar-toggler-icon"></span>
             </button>
-
-            <div  class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <div  className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item active">
+                        <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
+                    </li>
+                    <li className="nav-item active">
+                        <Link to="/about" className="nav-link">About <span className="sr-only">(current)</span></Link>
                     </li>
                 </ul>
             </div>

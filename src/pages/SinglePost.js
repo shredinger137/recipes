@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 
 const SinglePost = (props) => {
 
     const [itemData, setItemData] = useState({});
+    const [itemInstructions, setItemInstructions] = useState("");
+    const [itemDescription, setItemDescription] = useState("");
 
     useEffect(() => {
 
@@ -17,8 +20,11 @@ const SinglePost = (props) => {
                 'fields.title[match]': title
             }
         ).then(result => {
-            if (result && result.items && result.items[0] && result.items[0].fields) {
+            if (result && result.items && result.items[0] && result.items[0].fields && result.items[0].fields.instructions) {
                 setItemData(result.items[0].fields);
+                const rawInstructions = result.items[0].fields.instructions;
+                const rawDescription = result.items[0].fields.description;
+                setItemInstructions(documentToHtmlString(rawInstructions))
             }
 
         }
@@ -26,17 +32,25 @@ const SinglePost = (props) => {
     }, [])
 
     //TODO: Content is returned as a different item for each paragraph. So you need a foreach or map or something here.
-    
+
     return (
-        <div>
-            <h2 style={{marginTop: "50px", color: "white"}}>{itemData.title}</h2>
+        <div style={{ textAlign: 'left' }}>
+            <h2 style={{ marginTop: "50px", color: "white", textAlign: 'center' }}>{itemData.title}</h2>
             <p></p>
-            <p>{itemData.tags}</p>
-            <p>{itemData.instructions && itemData.instructions.content && itemData.instructions.content[0] && itemData.instructions.content[0].content[0] && itemData.instructions.content[0].content[0].value ?
-                itemData.instructions.content[0].content[0].value
+            <p style={{ textAlign: "center" }}>{itemData.tags}</p>
+
+            {itemDescription && itemDescription.length && itemDescription.length > 5 ?
+                <div>
+                    <details>
+                        <summary><strong>Description</strong></summary>
+                        <div dangerouslySetInnerHTML={{ __html: itemDescription }}></div></details>
+                </div>
                 :
                 null
-            }</p>
+            }
+
+
+            <div dangerouslySetInnerHTML={{ __html: itemInstructions }}></div>
         </div>
     )
 

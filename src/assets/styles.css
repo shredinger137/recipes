@@ -16,3 +16,8 @@ a:hover {
 p {
     color: white;
 }
+
+summary {
+    color: white;
+    margin-bottom: 1rem;
+}

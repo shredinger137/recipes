@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './assets/bootstrap.min.css'
 import './assets/styles.css'
 import Header from './components/Header';
+import About from './components/About';
 
 const client = require("contentful").createClient({
   space: process.env.REACT_APP_CONTENTFUL_SPACE,
@@ -17,17 +18,20 @@ function App() {
 
   return (
     <div className="App">
-              <Header />
-      <div className="content" style={{ width: "80vw", margin: "0 auto" }}>
-        <Router>
+
+      <Router>
+        <Header />
+        <div className="content" style={{ width: "80vw", margin: "0 auto" }}>
           <Routes>
             <Route exact path="/" element={<List client={client} />} />
             <Route path="/recipes/*" element={<SinglePost client={client} />} />
+            <Route path="/about" element={<About />} />
           </Routes>
 
-        </Router>
-      </div>
-    </div>
+
+        </div>
+      </Router>
+    </div >
   );
 }
 

@@ -1,5 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 function List(props) {
 
@@ -35,9 +35,9 @@ function List(props) {
             return (
               <>
                 <tr>
-                  <td><a href={`./recipes/${recipe.fields.title.replace(' ', '_')}`}>{recipe.fields.title}</a></td>
-                  <td></td>
-                  <td></td>
+                  <td><Link to={`./recipes/${recipe.fields.title.replace(' ', '_')}`}>{recipe.fields.title}</Link></td>
+                  <td>{recipe.fields.category}</td>
+                  <td>{recipe.fields.tags}</td>
                 </tr>
               </>
             )
