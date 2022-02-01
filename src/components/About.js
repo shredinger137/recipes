@@ -6,7 +6,7 @@ const About = () => {
             <h2 style={{paddingTop: "55px"}}>lulufremen</h2>
             <div style={{fontSize: '1.2rem'}}>
             <p >This is a recipe site. It's my recipe site.</p>
-            <p>This isn't designed to drive you to see a bunch of ads by scrolling through my the novel of my life story and all my opinions on the ingredients. It's actually not designed for you at all.</p>
+            <p>This isn't designed to drive you to see a bunch of ads by scrolling through the novel of my life story and all my opinions on the ingredients. It's actually not designed for you at all.</p>
             <p>This site is designed so that I have a way to reference recipes, quickly, while in the kitchen. Maybe it'll help you with the same.</p>
             <br /><br />
             </div>
