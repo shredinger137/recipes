@@ -18,9 +18,7 @@ const Header = () => {
                     <li className="nav-item active">
                         <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
                     </li>
-                    <li className="nav-item active">
-                        <Link to="/about" className="nav-link">About <span className="sr-only">(current)</span></Link>
-                    </li>
+
                 </ul>
             </div>
         </nav>
