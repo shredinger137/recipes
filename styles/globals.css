@@ -1,0 +1,61 @@
+@keyframes strike {
+  from { text-decoration-color: transparent; }
+  to { text-decoration-color: auto; }
+}
+
+html {
+  color: white;
+}
+
+body {
+
+  background: 
+	linear-gradient(90deg,rgba(80,88,110,.9), rgba(28,24,24,.9)),
+	url(/noise.svg);
+  font-family:  'Roboto', sans-serif;
+
+}
+
+a {
+  color: white;
+}
+
+
+a:hover {
+  color: gray;
+  text-decoration: none;
+}
+
+p {
+  color: white;
+}
+
+summary {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: 'Cinzel', serif;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+
+
+.heading {
+  font-family: 'Cinzel', serif;
+}
+
+
+.strike {
+  text-decoration: line-through;
+  animation: strike .1s linear;
+}
+
+.light-text {
+  color: #FCBE84;
+}
