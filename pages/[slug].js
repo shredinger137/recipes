@@ -28,7 +28,7 @@ export default function Slug({ post }) {
       </div>
       <ul className="single-recipe-ingredients">
         {post.fields.ingredients.map(ingredient => {
-          return (<li onClick = {(e) => {strikeOut(e)}}>{ingredient}</li>)
+          return (<li onClick = {(e) => {strikeOut(e)}} key={ingredient}>{ingredient}</li>)
         })}
       </ul>
       <div dangerouslySetInnerHTML={{ __html: instructions }} style={{marginTop: '5vh'}}></div>
