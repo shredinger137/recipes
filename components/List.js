@@ -18,13 +18,15 @@ function List(props) {
         <tbody>
           {props.recipes.map(recipe => {
             return (
-              <>
-                <tr style={{fontFamily: "'Roboto', sans-serif"}}>
-                  <td><Link href={`/${recipe.fields.slug}`}>{recipe.fields.title}</Link></td>
-                  <td>{recipe.fields.category}</td>
-                  <td>{recipe.fields.tags}</td>
+
+                <tr style={{ fontFamily: "'Roboto', sans-serif" }} key={`${recipe.fields.title}row`}>
+                  <td key={`${recipe.fields.slug}row`}>
+                    <Link href={`/${recipe.fields.slug}`} key={`${recipe.fields.title}link`}>{recipe.fields.title}</Link>
+                  </td>
+                  <td key={`${recipe.fields.title}cat`}>{recipe.fields.category}</td>
+                  <td key={`${recipe.fields.title}tag`}>{recipe.fields.tags}</td>
                 </tr>
-              </>
+
             )
           })}
         </tbody>
