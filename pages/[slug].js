@@ -11,7 +11,16 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 export default function Slug({ post }) {
 
-  const instructions = documentToHtmlString(post.fields.instructions)
+
+  const schemaData = {
+    "@context": "https://schema.org/",
+    "@type": "Recipe",
+    "name": post.fields.title,
+    "recipeCategory": post.fields.category,
+    "recipeIngredient": post.fields.ingredients,
+
+  }
+
 
 
   return (
@@ -19,8 +28,12 @@ export default function Slug({ post }) {
       <Head>
         <title>{post.fields.title}</title>
       </Head>
-      <p className="light-text" style={{fontSize: '.8em'}}>{post.fields.category.toUpperCase()}</p>
-      <div className="single-recipe-title" style={{marginBottom: '30px'}}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+      <p className="light-text" style={{ fontSize: '.8em' }}>{post.fields.category.toUpperCase()}</p>
+      <div className="single-recipe-title" style={{ marginBottom: '30px' }}>
         <h1>{post.fields.title}</h1>
       </div>
       <div>
@@ -28,10 +41,10 @@ export default function Slug({ post }) {
       </div>
       <ul className="single-recipe-ingredients">
         {post.fields.ingredients.map(ingredient => {
-          return (<li onClick = {(e) => {strikeOut(e)}} key={ingredient}>{ingredient}</li>)
+          return (<li onClick={(e) => { strikeOut(e) }} key={ingredient}>{ingredient}</li>)
         })}
       </ul>
-      <div dangerouslySetInnerHTML={{ __html: instructions }} style={{marginTop: '5vh'}}></div>
+      <div dangerouslySetInnerHTML={{ __html: documentToHtmlString(post.fields.instructions) }} style={{ marginTop: '5vh' }}></div>
     </Layout>
   )
 }
